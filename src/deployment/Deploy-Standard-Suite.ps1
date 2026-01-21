@@ -1,10 +1,10 @@
-# Liste des logiciels cibles 
+# Standard software baseline
 $Apps = @("googlechrome", "vlc", "adobereader", "7zip", "libreoffice-fresh")
 
-Write-Output "Lancement du déploiement du socle logiciel..."
+Write-Output "Starting software suite deployment..."
 
 foreach ($App in $Apps) {
-    Write-Output "Traitement de : $App"
-    # Mise à jour ou installation automatique
+    Write-Output "Processing: $App"
+    # Silent upgrade or installation
     choco upgrade $App -y --no-progress
 }
