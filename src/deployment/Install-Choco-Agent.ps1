@@ -1,15 +1,16 @@
+# Infrastructure variables 
 $DeployServer = "SRV-DEPLOY-01" 
 $InstallerPath = "\\$DeployServer\Deploy$\choco-install.ps1"
 
-# Vérification de l'agent
+# Check if Chocolatey is installed
 if (Get-Command choco.exe -ErrorAction SilentlyContinue) {
-    Write-Output "Chocolatey est déjà présent."
+    Write-Output "Chocolatey agent is already installed."
 } else {
-    Write-Output "Installation de l'agent Chocolatey..."
+    Write-Output "Installing Chocolatey agent from $InstallerPath..."
     try {
         & $InstallerPath
-        Write-Output "Installation terminée avec succès."
+        Write-Output "Installation successful."
     } catch {
-        Write-Error "Erreur lors de l'installation : $($_.Exception.Message)"
+        Write-Error "Installation failed: $($_.Exception.Message)"
     }
 }
