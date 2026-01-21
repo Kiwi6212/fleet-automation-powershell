@@ -14,3 +14,8 @@ A comprehensive automation solution designed to manage a fleet of **370 Windows 
 2. **Standard Suite** (`src/deployment`): Automated deployment of the software baseline (Chrome, VLC, etc.).
 3. **Provisioning** (`src/provisioning`): "Golden Image" preparation script for new workstations.
 4. **Audit** (`src/audit`): AD scanning, connectivity tests, and Chocolatey compliance reporting.
+
+## 🚀 Installation
+1. Clone this repository.
+2. Configure your domain and server variables in the scripts.
+3. Deploy the installation script via a startup GPO.
