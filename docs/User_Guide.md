@@ -1,12 +1,13 @@
-# Guide d'Exploitation : Gestion de Parc via Chocolatey
+# Operations Guide: Fleet Management with Chocolatey
 
-## 📋 Présentation
-Cette solution automatise la gestion d'un parc de 370 machines via une approche "Pull" PowerShell.
+## 📋 Overview
+This solution automates the software lifecycle for 370 workstations. It uses a "Pull" approach via GPO to ensure all machines remain compliant with the defined software baseline.
 
-## 🛠️ Utilisation
-1. **Provisioning** : Exécutez `Invoke-MasterProvisioning.ps1` sur vos images Master.
-2. **Déploiement** : Liez `Install-Choco-Agent.ps1` à vos GPO de démarrage.
-3. **Audit** : Lancez `Invoke-FleetAudit.ps1` pour obtenir un état des lieux du parc.
+## 🛠️ Usage Instructions
+1. **Provisioning**: Run `Invoke-MasterProvisioning.ps1` on new "Golden Images" to install Chocolatey and the full software suite.
+2. **GPO Deployment**: Link `Install-Choco-Agent.ps1` to a Startup Script GPO in the GPMC.
+3. **Maintenance**: Update the `$Apps` list in `Deploy-Standard-Suite.ps1` to add or remove software across the fleet.
 
-## 🔒 Sécurité
-Les données sensibles (domaines, IPs) ont été remplacées par des variables. Les rapports CSV sont exclus du dépôt par le fichier `.gitignore`.
+## 🔒 Security & Auditing
+* Sensitive data (domain names, IPs) are handled via variables.
+* Audit reports (CSV) are automatically excluded from the repository by the `.gitignore` file to protect infrastructure details.
