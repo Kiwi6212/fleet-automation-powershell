@@ -1,20 +1,16 @@
-# Fleet Management Automation & Software Deployment
+# Fleet Management & Software Deployment Automation
 
-## 📌 Présentation du Projet
-Cette solution automatise la gestion d'un parc de **370 machines** Windows. Elle remplace les installations manuelles par un système "Pull" basé sur des scripts PowerShell et Chocolatey, garantissant un socle logiciel standardisé et à jour.
+## 📌 Project Overview
+A comprehensive automation solution designed to manage a fleet of **370 Windows machines** across two Active Directory domains (Administrative and Educational). The project replaces manual software installations with an automated "Pull" system, ensuring a standardized and secure software baseline.
 
-## ⚙️ Technologies Utilisées
-* **PowerShell** : Cœur de l'automatisation et du reporting.
-* **Chocolatey** : Gestionnaire de paquets pour le déploiement applicatif.
-* **GPO (Group Policy Objects)** : Vecteur d'exécution au démarrage des postes.
-* **Active Directory** : Source de données pour l'audit du parc.
+## ⚙️ Technical Stack
+* **PowerShell**: Core logic for automation and reporting.
+* **Chocolatey**: Package manager for seamless software deployment and updates.
+* **GPO (Group Policy Objects)**: Deployment vector used for startup script execution.
+* **WinRM**: Remote management of client workstations.
 
-## 🏗️ Architecture de la Solution
-* **Déploiement** (`src/deployment`) : Scripts d'installation automatique de l'agent via GPO.
-* **Audit & Reporting** (`src/audit`) : Scan de l'AD, tests de connectivité et vérification de conformité Chocolatey.
-* **Provisioning** (`src/provisioning`) : Script de préparation "Master" pour le déploiement initial.
-
-## 🚀 Installation
-1. Clonez ce dépôt.
-2. Configurez vos variables de domaine et de serveurs dans les scripts.
-3. Déployez le script d'installation via une GPO de démarrage.
+## 🏗️ Architecture
+1. **Deployment** (`src/deployment`): Automated agent installation via GPO.
+2. **Standard Suite** (`src/deployment`): Automated deployment of the software baseline (Chrome, VLC, etc.).
+3. **Provisioning** (`src/provisioning`): "Golden Image" preparation script for new workstations.
+4. **Audit** (`src/audit`): AD scanning, connectivity tests, and Chocolatey compliance reporting.
